@@ -11,15 +11,22 @@ return {
   },
   lazy = false,
   keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    -- { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>n', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
     filesystem = {
       window = {
         mappings = {
-          ['\\'] = 'close_window',
+          ['<leader>n'] = 'close_window',
         },
       },
+    filtered_items = {
+      visible = true, -- in the same section if you want to see dimmed items too (not just hidden)
+      hide_dotfiles = false, -- This line shows hidden files
+      hide_gitignored = true,
+      -- ... other options
+    },
     },
   },
 }
