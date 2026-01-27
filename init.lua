@@ -225,6 +225,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Active pane transparency; keeps other splits unchanged
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none", ctermbg = "none" })
+    vim.api.nvim_set_hl(0, "NonText", { bg = "none", ctermbg = "none" })
+  end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
