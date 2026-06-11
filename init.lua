@@ -233,6 +233,16 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end,
 })
 
+ -- Open a terminal in a left vertical split on startup
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd("vsplit")
+    vim.cmd("wincmd h")
+    vim.cmd("terminal")
+    vim.cmd("startinsert")
+  end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
